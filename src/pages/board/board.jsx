@@ -1,35 +1,37 @@
 import React, { Component } from "react";
 import { View, Text, Canvas, Button } from "@tarojs/components";
-import Square from "../square/square"
-import "./board.less"
+import Square from "../square/square";
+import "./board.less";
 export default class Board extends React.Component {
   renderSquare(i) {
     return <Square />;
   }
 
-  renderBoard(str) {
-
-
-    for (var i = 1; i < 11; i++) {
-      
-      for (var j = 1; j < 11; j++) {
-         // var temp=this.renderSquare(i * j)
-         // console.log(temp)
-          str.push(<Button className="square">11</Button>)
+  renderBoard(map) {
+    var str = []
+    
+  //  console.log('map',map)
+    for (var i = 0; i < 400; i++) {
+    
+        // var temp=this.renderSquare(i * j)
         
-      }
-
-      str.push(<br></br>)
+        if (map[i] == "s") {
+          console.log('s')
+          str.push(<View className="square"><View className="snake"></View></View>);
+        }
+        else if (map[i] == "f")
+          str.push(<View className="square"><View className="food"></View></View>);
+        else str.push(<View className="square"></View>);
+      
 
    
-      
     }
-    return str
+    return str;
   }
 
   render() {
-    var str = []
-    this.renderBoard(str)
+    console.log(this.props.map)
+    var str = this.renderBoard(this.props.map);
 
     return <View style="width:350px;height:350px;margin:0 auto">{str}</View>;
   }
