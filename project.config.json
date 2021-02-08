@@ -2,7 +2,7 @@
   "miniprogramRoot": "dist/",
   "projectname": "snake-game",
   "description": "a classical greedy snake game operated by gestures",
-  "appid": "touristappid",
+  "appid": "wx3ab7ad1f9ebe4bbe",
   "setting": {
     "urlCheck": true,
     "es6": false,

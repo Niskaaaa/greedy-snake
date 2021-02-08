@@ -16,11 +16,11 @@ export default class Board extends React.Component {
         // var temp=this.renderSquare(i * j)
         
         if (map[i] == "s") {
-          console.log('s')
-          str.push(<View className="square"><View className="snake"></View></View>);
+         /// console.log('s')
+          str.push(<View className="square"><View className="snake" id={i}></View></View>);
         }
         else if (map[i] == "f")
-          str.push(<View className="square"><View className="food"></View></View>);
+          str.push(<View className="square"><View className="food" id={i}></View></View>);
         else str.push(<View className="square"></View>);
       
 
@@ -30,9 +30,9 @@ export default class Board extends React.Component {
   }
 
   render() {
-    console.log(this.props.map)
+  //  console.log(this.props.map)
     var str = this.renderBoard(this.props.map);
 
-    return <View style="width:350px;height:350px;margin:0 auto">{str}</View>;
+    return <View style="width:350px;height:350px;margin:0 auto" onClick={this.props.touch}>{str}</View>;
   }
 }
